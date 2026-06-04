@@ -264,6 +264,16 @@
 
     .invite-btn.revealed { opacity: 1; }
 
+    .invite-btn--confirm {
+      color: var(--accent2);
+      border-color: rgba(192,132,252,0.35);
+      transition: opacity 0.9s ease 1.9s, background 0.3s ease, color 0.3s ease;
+    }
+
+    .invite-btn--confirm:hover {
+      background: rgba(192,132,252,0.12);
+    }
+
     .invite-from {
       font-family: 'DM Mono', monospace;
       font-size: clamp(0.55rem, 1vw, 0.65rem);
@@ -299,6 +309,7 @@
       <p class="invite-sub" id="invite-sub">tengo un lugar especial en mente para nosotros.</p>
       <div class="invite-divider" id="invite-divider"></div>
       <a class="invite-btn" id="invite-btn" href="https://maps.app.goo.gl/2HoT3h9ZL1Z8CEx78" target="_blank" rel="noopener">ver el restaurante ♥</a>
+      <a class="invite-btn invite-btn--confirm" id="invite-confirm" href="https://wa.me/50662151059?text=si%20quiero%20ir%20%F0%9F%A4%8D" target="_blank" rel="noopener" style="margin-top:1rem;">si quiero ir ♥</a>
     </div>
     <p class="invite-from" id="invite-from">con amor · wes</p>
   </section>
@@ -344,9 +355,10 @@
     //  TYPEWRITER SEQUENCES
     // ─────────────────────────────────────────────────────
     const SEQUENCES = [
-      ["oye isa,", "tengo algo que preguntarte..."],
+      ["hola isa,", "tengo algo que preguntarte..."],
       ["manana es jueves 4 de junio,", "y quiero que sea un dia especial."],
-      ["quiero llevarte a cenar,", "a un lugar que creo que te va a encantar."],
+      ["quiero llevarte a cenar,", "a un lugar del que hemos hablado de ir,"],
+      ["y creo que es la perfecta ocasion", "para ir a probarlo juntos."],
       ["solo tu y yo,", "una noche tranquila juntos."],
       ["porque me encanta cuando estamos juntos", "y quiero que tengas una noche increible."],
       ["entonces...", "♥"],
@@ -417,6 +429,8 @@
       document.getElementById('invite-divider').classList.add('revealed');
       await wait(400);
       document.getElementById('invite-btn').classList.add('revealed');
+      await wait(300);
+      document.getElementById('invite-confirm').classList.add('revealed');
       await wait(600);
       document.getElementById('invite-from').classList.add('revealed');
     }
